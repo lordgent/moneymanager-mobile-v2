@@ -1,2 +1,83 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+
+ion-tab-button.tab-selected {
+  --color: #7F3DFF;
+}
+
+/* Jika kamu pakai <img>, bisa pakai filter ungu untuk highlight */
+ion-tab-button.tab-selected img {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(5262%) hue-rotate(255deg) brightness(96%) contrast(104%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fefefe;
+}
+
+.mobile-container {
+  max-width: 430px; 
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  padding: 0 6px;
+}
+
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid #7F3DFF;
+  background-position: center;
+  border-radius: 9999px; /* rounded-full */
+}
+.header-section{
+    margin-top: 1em;
+}
+
+.icon-box{
+    background-color: white;
+    border-radius: 1em;
+    padding: 5px;
+}
+
+.month-selector-wrapper {
+  position: relative;
+  display: inline-block;
+  background-color: #f1eefc;
+  border-radius: 20px;
+  padding: 0 12px;
+}
+
+.month-selector-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 8px 24px 8px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  border-radius: 20px;
+}
+
+.arrow-down {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #7f3dff;
+  pointer-events: none;
+}
+
+ion-tab-bar {
+  max-width: 430px;       /* contoh maksimal lebar */
+  margin: 0 auto;
+  width: 100%;         /* center */
+  border-radius: 12px;    /* opsional */
+}

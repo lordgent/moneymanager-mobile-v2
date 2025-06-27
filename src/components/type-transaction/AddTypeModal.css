@@ -1,0 +1,31 @@
+.fab-main,
+.fab-child {
+  --background: #7f3dff !important;
+  --color: #ffffff !important;
+}
+
+/* FAB anak income */
+.fab-child.income {
+  background-color: #7f3dff;
+  color: white;
+  left: -60px;
+}
+
+/* FAB anak expense */
+.fab-child.expense {
+  background-color: #7f3dff;
+  color: white;
+  right: -60px;
+}
+
+/* General child styling */
+.fab-child {
+  position: absolute;
+  bottom: 70px;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

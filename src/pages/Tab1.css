@@ -1,0 +1,172 @@
+.home-content {
+  padding: 20px;
+  background: #fff7f0;
+  font-family: 'Inter', sans-serif;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.notif {
+  width: 24px;
+  height: 24px;
+}
+
+.month-selector {
+  background: #f1eefc;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.balance-label {
+  margin-top: 16px;
+  color: #888;
+  text-align: center;
+}
+
+.balance-amount {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.summary-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 5px;
+}
+
+.income-box, .expense-box {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.income-box {
+  background-color: #00a86b;
+  color: white;
+}
+
+.expense-box {
+  background-color: #fd3c4a;
+  color: white;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.amount {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.chart {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.segment-wrapper {
+  overflow-x: auto;
+  padding: 0;
+}
+
+.segment-wrapper ion-label {
+  font-size: 14px; /* atau sesuaikan */
+  font-weight: 500;
+}
+
+
+.segment-wrapper ion-segment {
+  width: 100%;
+}
+
+.segment-wrapper ion-segment-button {
+  flex: 1 1 auto;
+  min-width: 80px;
+  font-size: 14px;
+}
+
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see-all-button {
+  font-size: 14px;
+  color: #7f3dff;
+}
+
+.transaction-list {
+  margin-top: 12px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.transaction-item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-info .title {
+  font-weight: 600;
+}
+
+.transaction-info .subtitle {
+  font-size: 12px;
+  color: #999;
+}
+
+.transaction-amount {
+  font-weight: bold;
+  color: #fd3c4a;
+  margin-right: 12px;
+}
+
+.transaction-time {
+  font-size: 12px;
+  color: #aaa;
+}

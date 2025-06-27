@@ -1,0 +1,79 @@
+.budget-content {
+  background-color: #aaa3a3;
+}
+
+.budget-wrapper {
+  max-width: 430px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
+.month-header {
+  background-color: #7f3dff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  padding: 0 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.month-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.month-nav {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.budget-empty {
+  text-align: center;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  background-color: white;
+  width: 100%;
+  padding: 32px 16px;
+  margin-top: -24px;
+  box-sizing: border-box;
+}
+
+.empty-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #999;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.create-button-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 16px;
+  z-index: 100;
+  max-width: 430px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-budget-btn {
+  --background: #7f3dff;
+  --border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+}

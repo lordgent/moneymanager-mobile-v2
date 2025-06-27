@@ -1,0 +1,114 @@
+/* FilterBottomSheet.css */
+
+.bottom-sheet {
+  --height: 70%;
+  --border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: flex-end;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3em;
+
+  /* opsional: center modal secara horizontal */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* width 100% agar responsif */
+  width: 100%;
+  max-width: 430px; /* biar mirip iPhone */
+}
+
+
+.filter-container {
+  padding: 16px;
+  background: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.drag-indicator {
+  width: 40px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 0 auto 16px auto;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.reset-btn {
+  color: #b18bff;
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: #f1f1f1;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #333;
+}
+
+.pill.active {
+  background: #f6efff;
+  color: #7f3dff;
+}
+
+.category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.selected-count {
+  color: #999;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.apply-btn {
+  margin-top: 20px;
+  background: #7f3dff;
+  border-radius: 12px;
+  font-weight: 600;
+}

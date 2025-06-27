@@ -1,0 +1,34 @@
+.profile-content {
+  --padding-top: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  background: #f9f9fb;
+}
+
+.profile-header {
+display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.profile-name {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.profile-email {
+  color: gray;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.avatar-medium{
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid #7F3DFF;
+  background-position: center;
+  border-radius: 9999px; 
+}

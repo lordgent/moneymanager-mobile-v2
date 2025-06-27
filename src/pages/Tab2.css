@@ -1,0 +1,87 @@
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 0;
+}
+
+.filter-button {
+  background: #f1eefc;
+  border: none;
+  border-radius: 12px;
+  padding: 6px;
+}
+
+.report-banner {
+  margin: 16px;
+  padding: 12px 16px;
+  background-color: #f6f1ff;
+  border-radius: 16px;
+  color: #7f3dff;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section {
+  padding: 0 16px;
+}
+
+.section h4 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  background-color: #fefefe;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.transaction-text {
+  flex-grow: 1;
+}
+
+.transaction-text .title {
+  font-weight: 600;
+}
+
+.transaction-text .subtitle {
+  font-size: 12px;
+  color: #888;
+}
+
+.transaction-meta {
+  text-align: right;
+}
+
+.transaction-meta .amount {
+  font-weight: 600;
+}
+
+.transaction-meta .amount.red {
+  color: #fd3c4a;
+}
+
+.transaction-meta .amount.green {
+  color: #00a86b;
+}
+
+.transaction-meta .time {
+  font-size: 12px;
+  color: #999;
+}
