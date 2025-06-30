@@ -29,11 +29,11 @@ const Budget: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      {/* <IonHeader>
         <IonToolbar color="light">
           <IonTitle>Budget</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
 
       <IonContent fullscreen className="budget-content">
         <div className="budget-wrapper">

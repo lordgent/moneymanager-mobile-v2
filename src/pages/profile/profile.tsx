@@ -22,11 +22,6 @@ import "./profile.css";
 const Profile: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar color="light">
-          <IonTitle>Profile</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen className="profile-content">
         <MobileLayout>
           <div className="profile-header">
@@ -37,19 +32,19 @@ const Profile: React.FC = () => {
             </div>
           </div>
 
-          <IonList>
-            <IonItem button>
-              <IonIcon icon={personCircleOutline} slot="start" />
+          <IonList className="icon-list">
+            <div className="icon-item"  >
+              <IonIcon className="icon" icon={personCircleOutline} />
               <IonLabel>Edit Profile</IonLabel>
-            </IonItem>
-            <IonItem button>
-              <IonIcon icon={settingsOutline} slot="start" />
+            </div>
+            <div className="icon-item"  >
+              <IonIcon className="icon" icon={settingsOutline} />
               <IonLabel>Settings</IonLabel>
-            </IonItem>
-            <IonItem button lines="none">
-              <IonIcon icon={logOutOutline} slot="start" />
+            </div>
+            <div className="icon-item" >
+              <IonIcon className="icon" icon={logOutOutline} />
               <IonLabel color="danger">Logout</IonLabel>
-            </IonItem>
+            </div>
           </IonList>
         </MobileLayout>
       </IonContent>

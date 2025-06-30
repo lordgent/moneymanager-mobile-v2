@@ -6,11 +6,12 @@
 }
 
 .profile-header {
-display: flex;
+  display: flex;
   align-items: center;
   gap: 18px;
+  background-color: white;
+  padding-top: 10px;
 }
-
 
 .profile-name {
   font-weight: 600;
@@ -23,12 +24,29 @@ display: flex;
   margin-top: 4px;
 }
 
-.avatar-medium{
+.avatar-medium {
   width: 60px;
   height: 60px;
   background-size: cover;
   background-color: rgb(243, 243, 243);
-  border: 1px solid #7F3DFF;
+  border: 1px solid #7f3dff;
   background-position: center;
-  border-radius: 9999px; 
+  border-radius: 9999px;
+}
+.icon-list {
+  margin-top: 12px;
+  background-color: white;
+  display: grid;
+  grid-gap: 12px;
+}
+.icon-item{
+  background-color: white;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+.icon{
+  height: 25px;
+  width: 25px;
 }

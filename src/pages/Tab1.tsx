@@ -63,16 +63,16 @@ const Tab1: React.FC = () => {
         <div className="segment-wrapper">
           <IonSegment scrollable value={range} onIonChange={(e) => setRange(e.detail.value as any)}>
             <IonSegmentButton value="today">
-              <IonLabel>Today</IonLabel>
+              <IonLabel className="label-custom">Today</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="week">
-              <IonLabel>Week</IonLabel>
+              <IonLabel className="label-custom">Week</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="month">
-              <IonLabel>Month</IonLabel>
+              <IonLabel className="label-custom">Month</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="year">
-              <IonLabel>Year</IonLabel>
+              <IonLabel className="label-custom">Year</IonLabel>
             </IonSegmentButton>
           </IonSegment>
         </div>
