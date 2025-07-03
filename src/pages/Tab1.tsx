@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   IonContent,
   IonPage,
@@ -11,15 +11,23 @@ import "./Tab1.css";
 import MobileLayout from "../components/MobileLayout";
 import SpendingChart from "../components/SpendingChart";
 import MonthSelect from "../components/month-dropdown/MonthSelect";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store/store";
+import { fetchBalance } from "../store/reducers/profile/ProfileSlice";
 
 const Tab1: React.FC = () => {
   const [selectedMonth, setSelectedMonth] = React.useState("October");
-  const [range, setRange] = React.useState<"today" | "week" | "month" | "year">("week");
+  const [range, setRange] = React.useState<"today" | "week" | "month" | "year">(
+    "week"
+  );
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, status } = useSelector((state: RootState) => state.profile);
 
-  const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+  useEffect(() => {
+    dispatch(fetchBalance());
+  }, []);
+
+  console.log(data?.value);
 
   return (
     <IonPage>
@@ -32,22 +40,35 @@ const Tab1: React.FC = () => {
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
               />
-              <img src="/icons/notifiaction.svg" alt="notif" className="notif" />
+              <img
+                src="/icons/notifiaction.svg"
+                alt="notif"
+                className="notif"
+              />
             </div>
 
             <div className="balance-label">Account Balance</div>
-            <div className="balance-amount">$9400</div>
-
+            <div className="balance-amount">
+              Rp {Number(data?.value ?? 0).toLocaleString("id-ID")}
+            </div>
             <div className="summary-box">
               <div className="income-box">
-                <img src="/icons/income.svg" className="icon-box" alt="income" />
+                <img
+                  src="/icons/income.svg"
+                  className="icon-box"
+                  alt="income"
+                />
                 <div>
                   <div className="label">Income</div>
                   <div className="amount">$5000</div>
                 </div>
               </div>
               <div className="expense-box">
-                <img src="/icons/expense.svg" className="icon-box" alt="expense" />
+                <img
+                  src="/icons/expense.svg"
+                  className="icon-box"
+                  alt="expense"
+                />
                 <div>
                   <div className="label">Expenses</div>
                   <div className="amount">$1200</div>
@@ -57,28 +78,31 @@ const Tab1: React.FC = () => {
           </div>
 
           <div className="section">
-            <div className="section-title">Statistik pengeluaran</div>
+            <div className="section-title">This Year's Expense Analysis</div>
 
-            {/* Segment Range Picker */}
-        <div className="segment-wrapper">
-          <IonSegment scrollable value={range} onIonChange={(e) => setRange(e.detail.value as any)}>
-            <IonSegmentButton value="today">
-              <IonLabel className="label-custom">Today</IonLabel>
-            </IonSegmentButton>
-            <IonSegmentButton value="week">
-              <IonLabel className="label-custom">Week</IonLabel>
-            </IonSegmentButton>
-            <IonSegmentButton value="month">
-              <IonLabel className="label-custom">Month</IonLabel>
-            </IonSegmentButton>
-            <IonSegmentButton value="year">
-              <IonLabel className="label-custom">Year</IonLabel>
-            </IonSegmentButton>
-          </IonSegment>
-        </div>
+            <div className="segment-wrapper">
+              <IonSegment
+                scrollable
+                value={range}
+                onIonChange={(e) => setRange(e.detail.value as any)}
+              >
+                <IonSegmentButton value="today">
+                  <IonLabel className="label-custom">Today</IonLabel>
+                </IonSegmentButton>
+                <IonSegmentButton value="week">
+                  <IonLabel className="label-custom">Week</IonLabel>
+                </IonSegmentButton>
+                <IonSegmentButton value="month">
+                  <IonLabel className="label-custom">Month</IonLabel>
+                </IonSegmentButton>
+                <IonSegmentButton value="year">
+                  <IonLabel className="label-custom">Year</IonLabel>
+                </IonSegmentButton>
+              </IonSegment>
+            </div>
 
             {/* Chart */}
-            <SpendingChart range={range} />
+            <SpendingChart range={range}  />
           </div>
 
           <div className="section">
@@ -92,7 +116,7 @@ const Tab1: React.FC = () => {
             <div className="transaction-list">
               {/* Item 1 */}
               <div className="transaction-item">
-               <img src="/icons/food.svg" alt="food" />
+                <img src="/icons/food.svg" alt="food" />
                 <div className="transaction-info">
                   <div className="title">Shopping</div>
                   <div className="subtitle">Buy some grocery</div>

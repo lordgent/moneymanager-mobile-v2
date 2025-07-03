@@ -9,9 +9,13 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
 import GlobalMessage from "../../components/global-message/GlobalMessage";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
+import { fetchBalance } from "../../store/reducers/profile/ProfileSlice";
 
 const Login: React.FC = () => {
   const history = useHistory();
+  const dispatch = useDispatch<AppDispatch>();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,14 +52,13 @@ const Login: React.FC = () => {
         }
 
         showMessage("Login successful!");
-
-        // Delay sedikit agar user lihat pesan dulu sebelum redirect
         setTimeout(() => {
+          dispatch(fetchBalance());
           history.push({
             pathname: "/",
             state: { email },
           });
-        }, 1500);
+        }, 2000);
       } else {
         showMessage("Login failed: " + (data.message || "Unknown error"));
       }

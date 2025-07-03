@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ApexOptions } from "apexcharts";
 import Chart from "react-apexcharts";
 
@@ -5,44 +6,45 @@ interface Props {
   range: "today" | "week" | "month" | "year";
 }
 
-const getChartDataByRange = (range: Props["range"]) => {
-  switch (range) {
-    case "today":
-      return {
-        categories: ["Pagi", "Siang", "Sore", "Malam"],
-        data: [200, 350, 150, 300],
-      };
-    case "week":
-      return {
-        categories: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
-        data: [500, 700, 400, 900, 300, 600, 450],
-      };
-  case "month":
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth(); // 0-11
-
-  const totalDays = new Date(year, month + 1, 0).getDate();
-
-  return {
-    categories: Array.from({ length: totalDays }, (_, i) => `${i + 1}`), // ["1", "2", ..., "30"]
-    data: Array.from({ length: totalDays }, () => Math.floor(Math.random() * 1000)),
-  };
-    case "year":
-      return {
-        categories: [
-          "Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
-          "Jul", "Agu", "Sep", "Okt", "Nov", "Des",
-        ],
-        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * 3000)),
-      };
-    default:
-      return { categories: [], data: [] };
-  }
-};
+interface ChartResponse {
+  time: string;
+  total: number;
+}
 
 export default function SpendingChart({ range }: Props) {
-  const { categories, data } = getChartDataByRange(range);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [data, setData] = useState<number[]>([]);
+
+useEffect(() => {
+  const fetchChartData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const response = await fetch("http://localhost:8080/api/v1/user/transaction-report", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({ range }),
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch");
+
+      const res = await response.json();
+      const chartData: ChartResponse[] = res.data; // ✅ akses res.data
+
+      setCategories(chartData.map((item) => item.time));
+      setData(chartData.map((item) => item.total));
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setCategories([]);
+      setData([]);
+    }
+  };
+
+  fetchChartData();
+}, [range]);
 
   const options: ApexOptions = {
     chart: {
@@ -65,16 +67,16 @@ export default function SpendingChart({ range }: Props) {
         stops: [0, 90, 100],
       },
     },
-xaxis: {
-  categories,
-  labels: {
-    rotate: -45, // miringkan agar tidak tabrakan
-    style: {
-      fontSize: "10px",
+    xaxis: {
+      categories,
+      labels: {
+        rotate: -45,
+        style: {
+          fontSize: "10px",
+        },
+      },
+      tickAmount: 10,
     },
-  },
-  tickAmount: 10, // jumlah label yang ditampilkan secara merata
-},
     yaxis: {
       labels: { show: false },
     },

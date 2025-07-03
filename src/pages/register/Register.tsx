@@ -1,9 +1,4 @@
-import {
-  IonButton,
-  IonContent,
-  IonPage,
-  IonSpinner,
-} from "@ionic/react";
+import { IonButton, IonContent, IonPage, IonSpinner } from "@ionic/react";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +15,9 @@ const Register: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
 
-  const { status, error, token } = useSelector((state: RootState) => state.auth);
+  const { status, error, token } = useSelector(
+    (state: RootState) => state.auth
+  );
 
   const handleRegister = () => {
     dispatch(registerUser({ fullName, email, phoneNumber, password }));
@@ -42,7 +39,9 @@ const Register: React.FC = () => {
           <div className="login-card">
             <h2 className="login-title">Create Account</h2>
 
-            {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+            {error && (
+              <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+            )}
 
             <div className="card-input">
               <label>Fullname</label>
@@ -100,7 +99,10 @@ const Register: React.FC = () => {
             </IonButton>
 
             <div className="login-links ion-margin-top">
-              <span className="link-text" onClick={() => history.push("/login")}>
+              <span
+                className="link-text"
+                onClick={() => history.push("/login")}
+              >
                 Already have an account? Login
               </span>
             </div>

@@ -13,13 +13,16 @@ import {
 import { useHistory } from "react-router-dom";
 import MobileLayout from "../../components/MobileLayout";
 import "./profile.css";
+import {  useSelector } from "react-redux";
+import {  RootState } from "../../store/store";
 
 const Profile: React.FC = () => {
   const history = useHistory();
+  const { data } = useSelector((state: RootState) => state.profile);
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // 🔐 Hapus token
-    history.push("/login");           // 🔄 Redirect ke login
+    localStorage.removeItem("token");
+    history.push("/login");
   };
 
   return (
@@ -29,8 +32,8 @@ const Profile: React.FC = () => {
           <div className="profile-header">
             <div className="avatar-medium"></div>
             <div>
-              <div className="profile-name">John Doe</div>
-              <div className="profile-email">johndoe@email.com</div>
+              <div className="profile-name">{data?.fullName}</div>
+              <div className="profile-email">{data?.email}</div>
             </div>
           </div>
 
