@@ -11,7 +11,7 @@ ion-tab-button.tab-selected img {
 }
 
 :root {
-  --ion-color-light: #ffffff;
+  --ion-color-scheme: light;
 }
 
 html, body {

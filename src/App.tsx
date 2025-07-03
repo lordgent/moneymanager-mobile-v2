@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, useLocation } from "react-router-dom";
 import {
   IonApp,
   IonRouterOutlet,
@@ -17,6 +17,7 @@ import AddExpense from "./pages/add-expense/AddExpense";
 import AddIncome from "./pages/add-income/AddIncome";
 import Budget from "./pages/budget/budget";
 import Profile from "./pages/profile/profile";
+import Register from "./pages/register/Register";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -43,48 +44,70 @@ import "@ionic/react/css/display.css";
 
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
-import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
 import "./theme/variables.css";
 import AddTypeModal from "./components/type-transaction/AddTypeModal";
+import Login from "./pages/login/Login";
+import SendOtp from "./pages/send-otp/Sendotp";
 
 setupIonicReact();
-
 const App: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <IonApp>
-
       <IonReactRouter>
-              <AddTypeModal  />
+        <MainTabs />
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/tab1">
-              <Tab1 />
-            </Route>
-            <Route exact path="/tab2">
-              <Tab2 />
-            </Route>
-            <Route exact path="/budget">
-              <Budget />
-            </Route>
-            <Route  exact path="/profile">
-              <Profile />
-            </Route>
-            <Route path="/add-expense">
-              <AddExpense />
-            </Route>
-            <Route path="/add-income">
-              <AddIncome />
-            </Route>
+const MainTabs: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+  const location = useLocation();
+  const hideTabBar = /^\/(login|register|forgot-password|send-otp)/.test(
+    location.pathname
+  );
 
-            <Route exact path="/">
-              <Redirect to="/tab1" />
-            </Route>
-          </IonRouterOutlet>
+  return (
+    <>
+      {!hideTabBar && <AddTypeModal />}
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route exact path="/tab1">
+            <Tab1 />
+          </Route>
+          <Route exact path="/tab2">
+            <Tab2 />
+          </Route>
+          <Route exact path="/budget">
+            <Budget />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/add-expense">
+            <AddExpense />
+          </Route>
+          <Route path="/add-income">
+            <AddIncome />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route path="/send-otp" exact>
+            <SendOtp />
+          </Route>
+
+          <Route exact path="/">
+            <Redirect to="/tab1" />
+          </Route>
+        </IonRouterOutlet>
+
+        {!hideTabBar && (
           <IonTabBar slot="bottom">
             <IonTabButton tab="tab1" href="/tab1">
               <img
@@ -96,18 +119,18 @@ const App: React.FC = () => {
             <IonTabButton tab="tab2" href="/tab2">
               <img
                 src="/icons/Transaction.svg"
-                alt="Tab 4"
+                alt="Tab 2"
                 style={{ width: "24px", height: "24px" }}
               />
             </IonTabButton>
             <IonTabButton
               tab="add-expense"
               onClick={() => setShowModal(true)}
-            ></IonTabButton>
+            />
             <IonTabButton tab="budget" href="/budget">
               <img
                 src="/icons/pie.svg"
-                alt="Tab 4"
+                alt="Tab 3"
                 style={{ width: "24px", height: "24px" }}
               />
             </IonTabButton>
@@ -119,9 +142,9 @@ const App: React.FC = () => {
               />
             </IonTabButton>
           </IonTabBar>
-        </IonTabs>
-      </IonReactRouter>
-    </IonApp>
+        )}
+      </IonTabs>
+    </>
   );
 };
 
